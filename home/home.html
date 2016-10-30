@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Photo Journal
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<ion-list>
+  <button ion-button (click)='TakePhoto()'>
+  take photo
+  </button>
+
+<ion-item-sliding *ngFor="let pic of JournalList">
+  <button ion-item (click)='onClick()'>
+  <h3>Time: {{ today | date}} title: {{pic.Title}}</h3>
+<img [src]="pic.URL" *ngIf="pic.URL" >
+
+
+</button>
+<ion-item-options>
+<button ion-button icon-only (click)='Delete(pic)'>
+<ion-icon name='trash'></ion-icon>
+</button>
+<button ion-button icon-only (click)='Share()'>
+<ion-icon name='share'></ion-icon>
+ </button>
+</ion-item-options>
+</ion-item-sliding>
+</ion-list>
+</ion-content>
